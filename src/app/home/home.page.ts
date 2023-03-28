@@ -47,6 +47,7 @@ export class HomePage implements OnInit {
     console.log(event);
     if (this.cityName === '') {
       this.loading = true;
+      event.target.complete();
     } else {
       this.httpClient
         .get(`${API_ULR}/weather?q=${this.cityName}&appid=${API_KEY}`)
