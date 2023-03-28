@@ -1,14 +1,15 @@
 #container {
   --background: #afd4da !important;
 }
-ion-content{
 
-}
+ion-content {}
+
 #container strong {
   font-size: 20px;
   line-height: 26px;
 }
-.searchBar{
+
+.searchBar {
   --background: #3B7E88;
   border-radius: 20px;
   padding: 15px;
@@ -17,9 +18,11 @@ ion-content{
 
 
 }
-searchbar-search-icon.sc-ion-searchbar-md{
-  color: white !important ;
-} 
+
+searchbar-search-icon.sc-ion-searchbar-md {
+  color: white !important;
+}
+
 #container p {
   font-size: 16px;
   line-height: 22px;
@@ -33,7 +36,7 @@ searchbar-search-icon.sc-ion-searchbar-md{
   text-decoration: none;
 }
 
-.card{
+.card {
   // height: 350px;
   border-radius: 20px;
   --background: #3B7E88 !important;
@@ -43,36 +46,44 @@ searchbar-search-icon.sc-ion-searchbar-md{
   --background: #3B7E88 !important;
 }
 
-#temp{
+#temp {
   font-weight: 300;
   font-size: 4em;
   color: white;
   margin: 5px;
 }
 
-#location{
-  color: white  ;
+#location {
+  color: white;
 }
-#locationIcon{
+
+#locationIcon {
   color: #F6B844;
   margin: 10px;
 }
-#date{
+
+#date {
   color: #F6B844;
 }
 
-.detailCard{
+.detailCard {
   --background: #3B7E88;
   border-radius: 20px;
 
-  span{
+  span {
     color: white;
     font-weight: 300;
   }
 }
 
-.detailCard ion-item{
+.detailCard ion-item {
   --background: #3B7E88;
 }
 
-
+.no-loading img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+  height: 250px;
+}

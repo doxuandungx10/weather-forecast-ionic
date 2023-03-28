@@ -15,29 +15,55 @@ export class HomePage implements OnInit {
   weatherTemp: any;
   weatherDetails: any;
   icon: any;
-  cityName = 'Hanoi';
+  cityName = '';
+  loading = true;
 
   constructor(public httpClient: HttpClient) {}
   ngOnInit() {
     this.loadData();
   }
   loadData() {
-    this.httpClient
-      .get(`${API_ULR}/weather?q=${this.cityName}&appid=${API_KEY}`)
-      .subscribe((results: any) => {
-        console.log(results);
-        this.weatherTemp = results.main;
-        console.log(this.weatherTemp);
-        this.weatherDetails = results.weather[0];
-        console.log(this.weatherDetails);
-        this.icon =
-          'https://openweathermap.org/img/wn/' +
-          this.weatherDetails.icon +
-          '@4x.png';
-      });
+    if (this.cityName === '') {
+      this.loading = true;
+    } else {
+      this.httpClient
+        .get(`${API_ULR}/weather?q=${this.cityName}&appid=${API_KEY}`)
+        .subscribe((results: any) => {
+          console.log(results);
+          this.weatherTemp = results.main;
+          this.cityName = results.name;
+          console.log(this.weatherTemp);
+          this.weatherDetails = results.weather[0];
+          console.log(this.weatherDetails);
+          this.icon =
+            'https://openweathermap.org/img/wn/' +
+            this.weatherDetails.icon +
+            '@4x.png';
+          this.loading = false;
+        });
+    }
   }
-
-  loader() {}
+  doRefresh(event) {
+    console.log(event);
+    if (this.cityName === '') {
+      this.loading = true;
+    } else {
+      this.httpClient
+        .get(`${API_ULR}/weather?q=${this.cityName}&appid=${API_KEY}`)
+        .subscribe((results: any) => {
+          console.log(results);
+          this.weatherTemp = results.main;
+          this.cityName = results.name;
+          console.log(this.weatherTemp);
+          this.weatherDetails = results.weather[0];
+          console.log(this.weatherDetails);
+          this.icon =
+            'https://openweathermap.org/img/wn/' +
+            this.weatherDetails.icon +
+            '@4x.png';
+          this.loading = false;
+          event.target.complete();
+        });
+    }
+  }
 }
-
-
